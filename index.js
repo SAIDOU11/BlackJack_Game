@@ -1,0 +1,34 @@
+let firstCard = 1;
+let secondCard = 10;
+let sum = firstCard + secondCard;
+let hasBlackJack = false;
+let isAlive = true;
+let message = "";
+let messageEl = document.querySelector("#message-el");
+let cardsEl = document.querySelector("#cards-el");
+let sumEl = document.querySelector("#sum-el");
+
+function startGame() {
+  renderGame();
+}
+function renderGame() {
+  if (sum <= 20) {
+    message = "Do you want to draw a new card?";
+  } else if (sum === 21) {
+    message = "You've got Blackjack ";
+    hasBlackJack = true;
+  } else {
+    message = "You're out of the game! ";
+    isAlive = false;
+  }
+  cardsEl.textContent = "Cards: " + firstCard + " - " + secondCard;
+  messageEl.textContent = message;
+  sumEl.textContent = "Sum: " + sum;
+}
+
+function newCard() {
+  console.log("Drawing a new card from the deck!");
+  let card = 1;
+  sum += card;
+  renderGame();
+}
