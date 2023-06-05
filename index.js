@@ -13,7 +13,6 @@ function startGame() {
   renderGame();
 }
 function renderGame() {
-  // Render out first & second cards
   cardsEl.textContent = "Cards: " + cards[0] + " - " + cards[1];
   // Render out all the cards
   sumEl.textContent = "Sum: " + sum;
@@ -34,5 +33,7 @@ function newCard() {
   console.log("Drawing a new card from the deck!");
   let newCard = 1;
   sum += newCard;
+  cards.push(newCard);
+  console.log(cards);
   renderGame();
 }
